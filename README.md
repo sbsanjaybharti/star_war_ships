@@ -67,4 +67,5 @@ replace <filename> with actual file name eg. run.py, src/service.py and so on
 ##### Advantage:
 1. Number of iteration is reduce
 2. Clean code and tested code has been written
+3. Builder pattern with Flyweight patter is used to minimize iteration and membory usage. 
 
