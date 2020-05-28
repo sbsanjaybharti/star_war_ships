@@ -5,7 +5,7 @@ Import packages
 from flask_restplus import Api
 from flask import Blueprint
 
-from .main.service import api as index
+from .main.router import api as index
 
 blueprint = Blueprint('api', __name__)
 
