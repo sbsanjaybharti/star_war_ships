@@ -7,13 +7,13 @@ from flask_restplus import Resource
 from flask_restplus import Namespace
 from .service import StarWarsAPI, StarWars
 
-api = Namespace('Index', description='index is the home page of application')
+api = Namespace('Index', description='List of StarWarsShips based on rating')
 
 @api.route('/')
 class index(Resource):
     @api.doc('Get list of Star Wars starships')
     def get(self):
-        """Home page"""
+        """Get List"""
         result = StarWars().starships().list()
 
         response_object = {
@@ -22,4 +22,4 @@ class index(Resource):
             'message': 'test setting',
             'result': result
         }
-        return jsonify(response_object)
+        return jsonify(result)
