@@ -1,0 +1,41 @@
+version: '3'
+services:
+  # Traefik configuration
+  traefik:
+    image: traefik
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+      - "8001:8001"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.toml:/etc/traefik/traefik.toml
+
+  # nginx configuration
+  dev:
+    build: ./nginx
+    environment:
+      APP_HOST_NAME: 'star_wars'
+      APP_HOST_PORT: 8001
+    container_name: dev_nginx
+    restart: always
+    labels:
+      - "traefik.backend=dev"
+      - "traefik.frontend.rule=Host:starwars.localhost"
+      - "traefik.port=9000"
+      - "traefik.enable=true"
+
+  # Flask code configuration
+  starwars:
+    build:
+      context: ./starwars
+      dockerfile: local.Dockerfile
+    environment:
+      APP_NAME: 'starwars'
+      APP_STATUS: 'development'
+      STAR_WARS_API: 'https://swapi.dev/api'
+    volumes:
+      - ./starwars:/app
+    expose:
+      - 8001
