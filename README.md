@@ -1,4 +1,4 @@
-# star_war_ships
+# Star Wars API
 Get starships of Star Wars movies, sorted by hyperdrive 
 
 ### Requirement:
