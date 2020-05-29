@@ -111,7 +111,7 @@ class StarWars:
             return self.__group_by_null
         current = data.pop()
         if current['hyperdrive_rating'] == 'unknown':
-            self.__group_by_null.append(self.get_fields(current))
+            self.__group_by_null.append({'name': current['name']})
             return self.group(data)
 
         self.__group_by_rating[current['hyperdrive_rating']].append(self.get_fields(current))

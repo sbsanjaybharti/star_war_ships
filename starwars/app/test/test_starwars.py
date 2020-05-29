@@ -18,6 +18,22 @@ class TestStarWarsMethodExist(BaseTestCase):
     def test_class_have_method_starships(self):
         """--> class:StarWars -> method:starships exists"""
 
+    @existsin(StarWars)
+    def test_class_have_method_get(self):
+        """--> class:StarWars -> method:starships exists"""
+
+    @existsin(StarWars)
+    def test_class_have_method_get_fields(self):
+        """--> class:StarWars -> method:get_fields exists"""
+
+    @existsin(StarWars)
+    def test_class_have_method_page(self):
+        """--> class:StarWars -> method:page exists"""
+
+    @existsin(StarWars)
+    def test_class_have_method_list(self):
+        """--> class:StarWars -> method:list exists"""
+
 
 class TestStarWarsMethod(BaseTestCase):
     """Test class methods"""
