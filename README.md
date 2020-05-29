@@ -7,7 +7,8 @@ Get starships of Star Wars movies, sorted by hyperdrive
 * docker
 ### List of content
 1. Architecture
-2. Running url on docker
+2. Running application on docker
+3. Traefik for managing URL
 4. Unittest with 15 test cases
 5. PEP8 with pylint
 
@@ -41,23 +42,23 @@ Get starships of Star Wars movies, sorted by hyperdrive
 1. Install Docker 
 2. git clone https://github.com/sbsanjaybharti/star_war_ships
 3. I am assuming Docker is already install in your system if not then follow this link https://docs.docker.com/get-docker 
-3. Open the terminal in main folder and run the command<br/>
+4. Open the terminal in main folder and run the command<br/>
 ```ubuntu
 docker-compose build
 docker-compose up
 ```
 #### Step-2
 1. Open the URl localhost:8080 here you will get the URL to run the service.
-you can directally use this http://starwars.localhost/
+or you can directally use this http://starwars.localhost/
 
-3. To run the test cases open new terminal in same folder and run the command, first command will take you in the container and second command to run the test.
+2. To run the test cases open new terminal in same folder and run the command, first command will take you in the container and second command to run the test.
 ```python 
-docker-compose exec ghibli /bin/bash 
+docker-compose exec starwars /bin/bash 
 python run.py test
 ``` 
-4. To test PEP8 status
+3. To test PEP8 status
 ```python 
-docker-compose exec ghibli /bin/bash 
+docker-compose exec starwars /bin/bashh 
 python -m pylint <filename>
 ``` 
 first command will take you in the container and second command to run the pylint.
