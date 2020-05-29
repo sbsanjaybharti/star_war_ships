@@ -63,7 +63,7 @@ docker-compose exec starwars /bin/bashh
 python -m pylint <filename>
 ``` 
 first command will take you in the container and second command to run the pylint.
-replace <filename> with actual file name eg. run.py, src/service.py and so on
+replace <filename> with actual file name eg. run.py, app/main/router.py, app/main/service.py and so on
 
  
 ##### Advantage:
